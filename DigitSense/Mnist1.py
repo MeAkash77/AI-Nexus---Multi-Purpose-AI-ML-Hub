@@ -22,6 +22,9 @@ st.set_page_config(page_title="MNIST Digit Recognition", page_icon="🧮", layou
 # lottie_animation = load_lottie_url(lottie_url)
 
 def load_lottie_file(filepath: str):
+    base_dir = os.path.dirname(__file__)
+    filepath = os.path.join(base_dir, filename)
+    
     with open(filepath, "r") as f:
         return json.load(f)
 
