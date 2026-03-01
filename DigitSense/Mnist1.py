@@ -26,8 +26,7 @@ def load_lottie_file(filepath: str):
      filepath = os.path.join(base_dir, filename)
     
         with open(filepath, "r", encoding="utf-8") as f:
-            data = json.load(f)
-        return data
+        return json.load(f)
 
 # Path to the Lottie file
 lottie_filepath = "lottie.json"  # Make sure the path is correct
