@@ -10,10 +10,10 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Load the dataset
-dataset = pd.read_csv("Student_performance_data_.csv")  # Corrected filename
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-# Feature Engineering
-dataset['StudyGradeInteraction'] = dataset['StudyTimeWeekly'] * dataset['GradeClass']
+# Full path to CSV
+DATA_PATH = os.path.join(BASE_DIR, "Student_performance_data_.csv")
 
 # Prepare features and target variable
 x = dataset[['StudentID', 'Age', 'StudyTimeWeekly', 'GradeClass', 'StudyGradeInteraction']]
