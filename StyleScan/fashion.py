@@ -372,7 +372,7 @@ if file_uploader is not None:
         st.bar_chart(chart_data)
 
     # Display the animated GIF after prediction
-# Display the animated GIF after prediction
+
 gif_path = os.path.join(BASE_DIR, "Celebrations.gif")
 gif_base64 = get_gif_base64(gif_path)
 
