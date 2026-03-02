@@ -18,23 +18,27 @@ import base64  # <-- Import base64 for GIF encoding
 
 # Absolute path to this file's folder
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-MODEL_PATH = os.path.join(BASE_DIR, "Seq_model.h5")
 
+SEQ_MODEL_PATH = os.path.join(BASE_DIR, "Seq_model.h5")
+CNN_MODEL_PATH = os.path.join(BASE_DIR, "cnn_model.h5")
+
+# SAFE MODEL LOADERS
 @st.cache_resource
-def load_seq_model():
-
-    # Debug info (helps on Streamlit Cloud)
-    if not os.path.exists(MODEL_PATH):
-        st.error(f"Model NOT found at: {MODEL_PATH}")
-        st.write("Files inside StyleScan folder:")
+def load_cnn_model():
+    if not os.path.exists(CNN_MODEL_PATH):
+        st.error(f"cnn_model.h5 NOT found at: {CNN_MODEL_PATH}")
         st.write(os.listdir(BASE_DIR))
         st.stop()
 
-    model = tf.keras.models.load_model(MODEL_PATH)
-    return model
+    return tf.keras.models.load_model(CNN_MODEL_PATH)
 
+
+# ✅ LOAD MODELS (ONLY ONCE)
 seq_model = load_seq_model()
+cnn_model = load_cnn_model()
 
+# =========================
+# DATASET
 fas_data=keras.datasets.fashion_mnist
 (train_images,train_labels),(test_images,test_labels)=fas_data.load_data()
 
