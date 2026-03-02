@@ -9,18 +9,32 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import seaborn as sns
 import os
-
+import os
 # Load the dataset
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # Full path to CSV
 DATA_PATH = os.path.join(BASE_DIR, "Student_performance_data_.csv")
-dataset = pd.read_csv(DATA_PATH)
 
-# Prepare features and target variable
-x = dataset[['StudentID', 'Age', 'StudyTimeWeekly', 'GradeClass', 'StudyGradeInteraction']]
-y = dataset['GPA']
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
+@st.cache_data
+def load_data(path):
+    df = pd.read_csv(path)
+    df.columns = df.columns.str.strip()
+    return df
+
+dataset = load_data(file_path)
+required_cols = [
+    'StudentID',
+    'Age',
+    'StudyTimeWeekly',
+    'GradeClass',
+    'StudyGradeInteraction'
+]
+
+for col in required_cols:
+    if col not in dataset.columns:
+        st.error(f"Missing column: {col}")
+        st.stop()
 
 # Feature scaling
 scaler = StandardScaler()
