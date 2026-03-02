@@ -328,10 +328,17 @@ if working_demo_checked:
 if contact_us_checked:
     st.markdown("---")
     st.header("📞 Contact Us")
-    contact_image = Image.open(IMAGE_PATH).resize((400, 400))
-    st.image(contact_image, caption='Akash')
-    st.write('📧 Email: iakshu845@gmail.com')
 
+    IMAGE_PATH = os.path.join(BASE_DIR, "Het Patel.jpg")
+
+    if os.path.exists(IMAGE_PATH):
+        contact_image = Image.open(IMAGE_PATH).resize((400, 400))
+        st.image(contact_image, caption='Akash')
+    else:
+        st.warning("Contact image not found in repository.")
+
+    st.write('📧 Email: iakshu845@gmail.com')
+    
 # File Uploader and Image Classification
 file_uploader = st.file_uploader( "📂 Upload cloth image for classification",
     type=["jpg", "jpeg", "png"]
