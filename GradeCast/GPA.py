@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Load the dataset
-dataset = pd.read_csv("Student_performance_data _.csv")  # Corrected filename
+dataset = pd.read_csv("Student_performance_data_.csv")  # Corrected filename
 
 # Feature Engineering
 dataset['StudyGradeInteraction'] = dataset['StudyTimeWeekly'] * dataset['GradeClass']
