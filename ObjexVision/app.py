@@ -15,6 +15,20 @@ os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 MODEL_PATH = os.path.join(BASE_DIR, "final_model1.h5")
 
+@st.cache_resource
+def load_my_model():
+    if not os.path.exists(MODEL_PATH):
+        st.error(f"Model file not found at: {MODEL_PATH}")
+        st.stop()
+
+    model = tf.keras.models.load_model(MODEL_PATH)
+    model.compile(
+        optimizer="adam",
+        loss="sparse_categorical_crossentropy",
+        metrics=["accuracy"]
+    )
+    return model
+
 model = tf.keras.models.load_model(MODEL_PATH)
 
 # Streamlit page configuration
