@@ -103,7 +103,7 @@
 
 | **Project**                                          | **Live Link**                                                                                                          |
 |------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|
-| **👗 StyleScan - Fashion MNIST Image Classification** | [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://digitsense1.streamlit.app/) |
+| **👗 StyleScan - Fashion MNIST Image Classification** | [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://stylescan1.streamlit.app/) |
 | **🩺 GlycoTrack - Advanced Diabetes Prediction**      | [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://glycotrack1.streamlit.app/)|
 | **🧮 DigitSense - MNIST Handwritten Digit Classifier**| [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://digitsense1.streamlit.app/)|
 | **🌸 IrisWise - Iris Species Classification**        | [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://iriswise1.streamlit.app/) |
