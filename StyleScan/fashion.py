@@ -16,7 +16,6 @@ import requests  # For fetching Lottie animation
 import streamlit_lottie as st_lottie
 import base64  # <-- Import base64 for GIF encoding
 
-# Absolute path to this file's folder
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 SEQ_MODEL_PATH = os.path.join(BASE_DIR, "Seq_model.h5")
