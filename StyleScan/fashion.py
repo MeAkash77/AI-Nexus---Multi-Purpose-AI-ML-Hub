@@ -328,7 +328,7 @@ if working_demo_checked:
 if contact_us_checked:
     st.markdown("---")
     st.header("📞 Contact Us")
-    contact_image = Image.open('Het Patel.jpg').resize((400, 400))
+    contact_image = Image.open(IMAGE_PATH).resize((400, 400))
     st.image(contact_image, caption='Akash')
     st.write('📧 Email: iakshu845@gmail.com')
 
