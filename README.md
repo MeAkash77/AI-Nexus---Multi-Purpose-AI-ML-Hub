@@ -108,7 +108,7 @@
 | **🧮 DigitSense - MNIST Handwritten Digit Classifier**| [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://digitsense1.streamlit.app/)|
 | **🌸 IrisWise - Iris Species Classification**        | [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://iriswise.streamlit.app/) |
 | **🖼️ ObjexVision - CIFAR-10 Object Recognition**      | [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://objexvision.streamlit.app/)|
-| **🎓 GradeCast - GPA Prediction Model**               | [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://gradecast.streamlit.app/) |
+| **🎓 GradeCast - GPA Prediction Model**               | [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://gradecast1.streamlit.app/) |
 
 ---
 
