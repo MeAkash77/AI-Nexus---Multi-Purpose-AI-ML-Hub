@@ -2,7 +2,8 @@
 
 **AI Nexus** is a central repository that hosts multiple AI/ML projects under one roof. From image classification to healthcare predictions, explore a diverse range of applications powered by advanced machine learning algorithms.
 
-Live Link (https://ai-nexus1.streamlit.app/)
+## Live Link:
+(https://ai-nexus1.streamlit.app/)
 
 ## Projects Included:
 
