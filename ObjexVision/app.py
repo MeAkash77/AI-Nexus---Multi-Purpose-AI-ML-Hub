@@ -3,147 +3,197 @@ import numpy as np
 import pandas as pd
 from PIL import Image
 import streamlit as st
+from tensorflow.keras.utils import img_to_array, load_img
 import tensorflow as tf
-from tensorflow.keras.utils import img_to_array
 import requests
 import time
 import streamlit_lottie as st_lottie
 
-# Disable oneDNN warning
+# Disable oneDNN custom operations warning
 os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"
 
-# ==============================
-# PATH SETUP (CLOUD SAFE)
-# ==============================
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 MODEL_PATH = os.path.join(BASE_DIR, "final_model1.h5")
 
-# ==============================
-# PAGE CONFIG
-# ==============================
-st.set_page_config(
-    page_title="CIFAR-10 Image Classification",
-    page_icon="🖼️",
-    layout="wide"
-)
+model = tf.keras.models.load_model(MODEL_PATH)
 
-# ==============================
-# LOAD LOTTIE
-# ==============================
+# Streamlit page configuration
+st.set_page_config(page_title="CIFAR-10 Image Classification", page_icon="🖼️", layout="wide")
+
+# Load Lottie animation
 def load_lottie_url(url: str):
-    try:
-        r = requests.get(url)
-        if r.status_code != 200:
-            return None
-        return r.json()
-    except:
+    r = requests.get(url)
+    if r.status_code != 200:
         return None
+    return r.json()
 
+# Lottie Animation
 lottie_url = "https://lottie.host/de06d967-8825-499e-aa8c-a88dd15e1a08/dH2OtlPb3c.json"
 lottie_animation = load_lottie_url(lottie_url)
 
-# ==============================
-# SIDEBAR
-# ==============================
+# lottie_url = "https://lottie.host/cb54b283-5df4-4a94-b096-f20609d6cedd/OieGG3bmfC.json"  # Replace with your Lottie URL
+# lottie_url = "https://lottie.host/93d88d16-07db-49ec-88dd-6d9d61060502/w2kjPNdxKk.json"  # Replace with your Lottie URL
+# lottie_url = "https://lottie.host/02b428b5-0ba4-4059-bc6f-acea19d2d1d7/4QgxxvnOEh.json"  # Replace with your Lottie URL
+# lottie_url = "https://lottie.host/a8aaf165-c79f-4286-be91-c340a8c81074/re1wEpOwh4.json"  # Replace with your Lottie URL
+
+# Sidebar with unique elements
 with st.sidebar:
-    if lottie_animation:
-        st_lottie.st_lottie(lottie_animation, height=200, key="lottie")
+    st_lottie.st_lottie(lottie_animation, height=200, width=200, key="lottie_animation")
+    st.markdown("<h2 style='color: #007bff;'>Explore the App!</h2>", unsafe_allow_html=True)
+    st.markdown("**About the Model:** This CIFAR-10 classifier uses a convolutional neural network trained on thousands of images.")
+    
+    # Features section with hover effect
+    st.markdown(""" 
+        <style>
+            .feature-hover {
+                position: relative;
+                display: inline-block;
+                color: #007bff;
+                cursor: pointer;
+            }
 
-    st.markdown("## Explore the App!")
-    st.markdown("CNN model trained on CIFAR-10 dataset.")
+            .feature-hover .tooltip-text {
+                visibility: hidden;
+                width: 200px;
+                background-color: #333;
+                color: #fff;
+                text-align: center;
+                border-radius: 6px;
+                padding: 5px;
+                position: absolute;
+                z-index: 1;
+                bottom: 100%;
+                left: 50%;
+                margin-left: -100px;
+                opacity: 0;
+                transition: opacity 0.3s;
+            }
 
-    st.markdown("---")
-    st.markdown(
-        '[Contact: **Akash**](https://www.linkedin.com/in/me-akash77/)'
-    )
+            .feature-hover:hover .tooltip-text {
+                visibility: visible;
+                opacity: 1;
+            }
+        </style>
 
-# ==============================
-# CLASS LABELS
-# ==============================
+        <ul>
+            <li>
+                <div class="feature-hover">Fast Classification(Cool)
+                    <span class="tooltip-text">Get predictions in seconds.Enjoy a sleek and modern design.</span>
+                </div>
+            </li>
+            <li>
+                <div class="feature-hover">Highly Accurate
+                    <span class="tooltip-text">Model accuracy is up to 92%.</span>
+                </div>
+            </li>
+        </ul>
+    """, unsafe_allow_html=True)
+
+    # Contact information
+    st.markdown("<hr>", unsafe_allow_html=True)
+    st.markdown('Contact us at: [**Akash**](https://www.linkedin.com/in/me-akash77/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)')
+
+# CIFAR-10 class names
 class_names = [
     "airplane", "automobile", "bird", "cat", "deer",
     "dog", "frog", "horse", "ship", "truck"
 ]
 
-# ==============================
-# LOAD MODEL (CLOUD SAFE)
-# ==============================
+# Load model
 @st.cache_resource
 def load_my_model():
-    if not os.path.exists(MODEL_PATH):
-        st.error(f"Model file not found: {MODEL_PATH}")
-        st.stop()
-
-    model = tf.keras.models.load_model(MODEL_PATH)
-    model.compile(
-        optimizer="adam",
-        loss="sparse_categorical_crossentropy",
-        metrics=["accuracy"]
-    )
+    model = tf.keras.models.load_model("final_model1.h5")
+    # Compile the model (use the optimizer and loss you trained with)
+    model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
     return model
 
 model = load_my_model()
 
-# ==============================
-# TITLE
-# ==============================
-st.title("🖼️ CIFAR-10 Image Classification")
-st.write("Upload an image and let the model classify it.")
+# Main title with cool text effect
+st.markdown(""" 
+    <h1 style="text-align:center; color: #007bff; font-family: 'Courier New', Courier, monospace; animation: glow 2s ease-in-out infinite alternate;">
+    🖼️ CIFAR-10 Image Classification
+    </h1>
+    <style>
+    @keyframes glow {
+        0% {
+            text-shadow: 0 0 10px #9b59b6, 0 0 20px #007bff, 0 0 30px #007bff, 0 0 40px #9b59b6;
+        }
+        100% {
+            text-shadow: 0 0 20px #8e44ad, 0 0 30px #007bff, 0 0 40px #007bff, 0 0 50px #8e44ad;
+        }
+    }
+    </style>
+""", unsafe_allow_html=True)
 
-# ==============================
-# IMAGE PREPROCESSING
-# ==============================
-def preprocess_image(image: Image.Image):
-    image = image.resize((32, 32))
-    img = img_to_array(image)
+st.header("Upload an image and get predictions!")
+
+# Image loading function
+def load_image(filename):
+    img = load_img(filename, target_size=(32, 32))
+    img = img_to_array(img)
     img = img.reshape(1, 32, 32, 3)
-    img = img.astype("float32") / 255.0
+    img = img.astype('float32')
+    img = img / 255.0
     return img
 
-# ==============================
-# FILE UPLOADER
-# ==============================
-image_file = st.file_uploader(
-    "Upload an image",
-    type=["jpg", "png", "jpeg"]
-)
+# Create folder for images if not exist
+if not os.path.exists('./images'):
+    os.makedirs('./images')
+
+# Upload image section with fancy file uploader
+image_file = st.file_uploader("🌄 Upload an image", type=["jpg", "png"], key="file_uploader")
 
 if image_file is not None:
+    if st.button("Classify Image 🧠", key="classify_button"):
+        img_path = f"./images/{image_file.name}"
+        with open(img_path, "wb") as f:
+            f.write(image_file.getbuffer())
+        
+        image = Image.open(img_path)
+        st.image(image, caption='Uploaded Image', use_column_width=True)
 
-    image = Image.open(image_file).convert("RGB")
-    st.image(image, caption="Uploaded Image", use_container_width=True)
+        img_to_predict = load_image(img_path)
 
-    if st.button("Classify Image 🧠"):
-
-        img_to_predict = preprocess_image(image)
-
-        with st.spinner("Classifying..."):
-            time.sleep(1)
+        # Progress spinner
+        with st.spinner('🔍 Classifying image...'):
+            time.sleep(2)
             predictions = model.predict(img_to_predict)
-            predicted_class = np.argmax(predictions, axis=-1)[0]
-            confidence = float(np.max(predictions))
+            predicted_class = np.argmax(predictions, axis=-1)
+            confidence = np.max(predictions)
 
-        confidence_threshold = 0.60
+        # Threshold and result display
+        confidence_threshold = 0.60  # Increased confidence threshold to 60%
 
         if confidence < confidence_threshold:
-            st.warning(
-                f"Prediction uncertain ({confidence*100:.2f}%)"
-            )
+            result = f"Prediction: Not a CIFAR-10 class (Confidence: {confidence*100:.2f}%)"
         else:
-            st.success(
-                f"Prediction: **{class_names[predicted_class]}** "
-                f"({confidence*100:.2f}% confidence)"
-            )
+            result = f"Prediction: {class_names[predicted_class[0]]} with {confidence*100:.2f}% confidence"
 
-# ==============================
-# CIFAR-10 INFO
-# ==============================
-st.markdown("## CIFAR-10 Classes")
-st.write(", ".join(class_names))
+        st.success(result)
 
-# ==============================
-# PERFORMANCE TABLE
-# ==============================
+        os.remove(img_path)
+
+# Add unique progress bar for better interactivity
+if st.button("Reload App"):
+    st.progress(100)
+
+# Additional CIFAR-10 Information
+st.markdown(""" 
+### **CIFAR-10 Classes**:
+- <span title="✈️ Aircraft used in transportation and travel.">**airplane**</span>
+- <span title="🚗 Motor vehicles designed for roads.">**automobile**</span>
+- <span title="🐦 Creatures from the bird species.">**bird**</span>
+- <span title="🐱 Domesticated feline pets.">**cat**</span>
+- <span title="🦌 Animals that belong to the deer family.">**deer**</span>
+- <span title="🐶 Domesticated dogs.">**dog**</span>
+- <span title="🐸 Amphibians with moist skin.">**frog**</span>
+- <span title="🐴 Domesticated or wild horses.">**horse**</span>
+- <span title="🚢 Sea-going vessels used for transport.">**ship**</span>
+- <span title="🚚 Large vehicles used for goods transport.">**truck**</span>
+""", unsafe_allow_html=True)
+
+# Data for CIFAR-10 performance
 data = {
     "Class": class_names,
     "Accuracy": [0.89, 0.85, 0.78, 0.92, 0.80, 0.76, 0.83, 0.88, 0.90, 0.81],
@@ -151,4 +201,4 @@ data = {
 }
 
 performance_df = pd.DataFrame(data)
-st.dataframe(performance_df)
+st.write(performance_df)                                                                                                                                  fix and write the whole code
