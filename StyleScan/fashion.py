@@ -301,7 +301,7 @@ if demo_images_checked:
     ("Demo Images/shirt.jpg", "👚 Shirt"),
     ("Demo Images/T-shirt.jpeg", "👕 T-Shirt"), 
     ]
- for img_path, label in images:
+      for img_path, label in images:
     full_path = os.path.join(BASE_DIR, img_path)
 
     if os.path.exists(full_path):
