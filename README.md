@@ -49,8 +49,7 @@
 2. **🩺 GlycoTrack - Advanced Diabetes Prediction**
 3. **🌸 IrisWise - Iris Species Classification**
 4. **🎓 GradeCast - GPA Prediction Model**
-5. **🧮 DigitSense - MNIST Handwritten Digit Classifier** ## Live Link:
-https://ai-nexus1.streamlit.app
+5. **🧮 DigitSense - MNIST Handwritten Digit Classifier**
 6. **🖼️ ObjexVision - CIFAR-10 Object Recognition**
 
 ---
@@ -104,9 +103,9 @@ https://ai-nexus1.streamlit.app
 
 | **Project**                                          | **Live Link**                                                                                                          |
 |------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|
-| **👗 StyleScan - Fashion MNIST Image Classification** | [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://stylescan.streamlit.app/) |
+| **👗 StyleScan - Fashion MNIST Image Classification** | [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://digitsense1.streamlit.app/) |
 | **🩺 GlycoTrack - Advanced Diabetes Prediction**      | [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://glycotrack.streamlit.app/)|
-| **🧮 DigitSense - MNIST Handwritten Digit Classifier**| [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://predictadigit.streamlit.app/)|
+| **🧮 DigitSense - MNIST Handwritten Digit Classifier**| [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://digitsense1.streamlit.app/)|
 | **🌸 IrisWise - Iris Species Classification**        | [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://iriswise.streamlit.app/) |
 | **🖼️ ObjexVision - CIFAR-10 Object Recognition**      | [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://objexvision.streamlit.app/)|
 | **🎓 GradeCast - GPA Prediction Model**               | [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://gradecast.streamlit.app/) |
