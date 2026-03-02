@@ -58,7 +58,7 @@
 
 ### 🧮 **DigitSense - MNIST Handwritten Digit Classifier**
 
-| ![DigitSense Screenshot 1](https://github.com/user-attachments/assets/07b2da72-ab12-4b1e-a34a-eb7ea2a8f7e4) | ![DigitSense Screenshot 2](https://github.com/user-attachments/assets/5bd05631-063f-4a91-8a5c-6c17ea223734) | ![Link](https://ai-nexus1.streamlit.app/)
+| ![DigitSense Screenshot 1](https://github.com/user-attachments/assets/07b2da72-ab12-4b1e-a34a-eb7ea2a8f7e4) | ![DigitSense Screenshot 2](https://github.com/user-attachments/assets/5bd05631-063f-4a91-8a5c-6c17ea223734) |
 |-----------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
 
 ---
