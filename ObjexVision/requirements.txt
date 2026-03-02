@@ -1,8 +1,9 @@
 numpy
 pandas
 Pillow
-streamlit
 tensorflow
 requests
 streamlit-lottie
 matplotlib>=3.0.0
+streamlit==1.9.0
+protobuf==7.34.0
