@@ -305,10 +305,10 @@ if demo_images_checked:
         full_path = os.path.join(BASE_DIR, img_path)
 
         if os.path.exists(full_path):
-        image = Image.open(full_path).resize((180, 180))
-        st.image(image, caption=label)
+           image = Image.open(full_path).resize((180, 180))
+           st.image(image, caption=label)
         else:
-        st.warning(f"Image not found: {img_path}")
+           st.warning(f"Image not found: {img_path}")
 
 # Pretrained Network Section
         if pretrained_network_checked:
