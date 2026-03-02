@@ -301,18 +301,18 @@ if demo_images_checked:
     ("Demo Images/shirt.jpg", "👚 Shirt"),
     ("Demo Images/T-shirt.jpeg", "👕 T-Shirt"), 
     ]
-      for img_path, label in images:
-    full_path = os.path.join(BASE_DIR, img_path)
+    for img_path, label in images:
+        full_path = os.path.join(BASE_DIR, img_path)
 
-    if os.path.exists(full_path):
+        if os.path.exists(full_path):
         image = Image.open(full_path).resize((180, 180))
         st.image(image, caption=label)
-    else:
+        else:
         st.warning(f"Image not found: {img_path}")
 
 # Pretrained Network Section
-if pretrained_network_checked:
-    st.info("🧠 Working on it, update coming soon!")
+        if pretrained_network_checked:
+        st.info("🧠 Working on it, update coming soon!")
 
 # Working Demo Section
 if working_demo_checked:
