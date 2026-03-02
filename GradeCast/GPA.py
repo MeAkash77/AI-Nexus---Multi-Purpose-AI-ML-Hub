@@ -8,6 +8,7 @@ import joblib
 import streamlit as st
 import matplotlib.pyplot as plt
 import seaborn as sns
+import os
 
 # Load the dataset
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
