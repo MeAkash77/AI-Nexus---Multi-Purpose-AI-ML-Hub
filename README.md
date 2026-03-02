@@ -2,9 +2,6 @@
 
 **AI Nexus** is a central repository that hosts multiple AI/ML projects under one roof. From image classification to healthcare predictions, explore a diverse range of applications powered by advanced machine learning algorithms.
 
-## Live Link:
-https://ai-nexus1.streamlit.app
-
 ## Projects Included:
 
 1. **👗 StyleScan - Fashion MNIST Image Classification**
@@ -52,7 +49,8 @@ https://ai-nexus1.streamlit.app
 2. **🩺 GlycoTrack - Advanced Diabetes Prediction**
 3. **🌸 IrisWise - Iris Species Classification**
 4. **🎓 GradeCast - GPA Prediction Model**
-5. **🧮 DigitSense - MNIST Handwritten Digit Classifier**
+5. **🧮 DigitSense - MNIST Handwritten Digit Classifier** ## Live Link:
+https://ai-nexus1.streamlit.app
 6. **🖼️ ObjexVision - CIFAR-10 Object Recognition**
 
 ---
