@@ -317,17 +317,17 @@ if pretrained_network_checked:
 
 # Working Demo Section
 if working_demo_checked:
-    st.markdown("---")  # Add a separator
+    st.markdown("---")
     st.header("🎥 Working Demo")
 
-    # Load and display the video
-    video_file_path = 'streamlit-fashion-Mnist.webm'  # Update this path to your video file
-    try:
-        video_file = open(video_file_path, 'rb')
-        video_bytes = video_file.read()
-        st.video(video_bytes)
-    except FileNotFoundError:
-        st.error(f"⚠️ Video file not found: {video_file_path}. Please check the file path.")
+    VIDEO_PATH = os.path.join(BASE_DIR, "streamlit-fashion-Mnist.webm")
+
+    if os.path.exists(VIDEO_PATH):
+        with open(VIDEO_PATH, "rb") as video_file:
+            video_bytes = video_file.read()
+            st.video(video_bytes)
+    else:
+        st.warning("Video file not found in repository.")
 
 # Contact Us Section
 if contact_us_checked:
