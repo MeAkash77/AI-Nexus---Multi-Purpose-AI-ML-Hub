@@ -23,6 +23,8 @@ def load_data(path):
     return df
 
 dataset = load_data(DATA_PATH)
+
+# Create interaction feature if not present
 required_cols = [
     'StudentID',
     'Age',
