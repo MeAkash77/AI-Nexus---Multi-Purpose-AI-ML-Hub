@@ -23,15 +23,14 @@ CNN_MODEL_PATH = os.path.join(BASE_DIR, "cnn_model.h5")
 
 @st.cache_resource
 def load_models():
-
     if not os.path.exists(SEQ_MODEL_PATH):
         st.error(f"Sequential Model NOT found at: {SEQ_MODEL_PATH}")
-        st.write("Files inside folder:", os.listdir(BASE_DIR))
+        st.write(os.listdir(BASE_DIR))
         st.stop()
 
     if not os.path.exists(CNN_MODEL_PATH):
         st.error(f"CNN Model NOT found at: {CNN_MODEL_PATH}")
-        st.write("Files inside folder:", os.listdir(BASE_DIR))
+        st.write(os.listdir(BASE_DIR))
         st.stop()
 
     seq_model = tf.keras.models.load_model(SEQ_MODEL_PATH)
