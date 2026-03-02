@@ -201,4 +201,4 @@ data = {
 }
 
 performance_df = pd.DataFrame(data)
-st.write(performance_df)                                                                                                                                  fix and write the whole code
+st.write(performance_df)                                                          
