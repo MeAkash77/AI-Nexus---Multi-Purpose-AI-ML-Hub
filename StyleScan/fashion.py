@@ -46,7 +46,7 @@ def load_models():
 seq_model, cnn_model = load_models()
 
 
-fas_data=keras.datasets.fashion_mnist
+fas_data = keras.datasets.fashion_mnist
 (train_images,train_labels),(test_images,test_labels)=fas_data.load_data()
 
 # Load models
